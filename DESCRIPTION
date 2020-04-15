@@ -1,0 +1,13 @@
+Package: teffectsR
+Type: Package
+Title: Treatment Effects for R
+Version: 1.0
+Author: Oliver Hines
+Maintainer: Oliver Hines <oliver.hines@lshtm.ac.uk>
+Description: Functions are based on the teffects package in Stata.
+License: TBC
+Encoding: UTF-8
+LazyData: true
+Imports:
+  Matching
+RoxygenNote: 7.1.0
