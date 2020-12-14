@@ -19,7 +19,7 @@ fit_ipw(X, Y, Zx, weights = rep(1, N))
 List of fit parameters, which is used to derive an object of class \code{teffects} when called by \link[teffectsR]{teffects}.
 }
 \description{
-Fitting function called by \link[teffectsR]{teffects} when the method is set to \code{'IPW'}.
+Fitting function called by \link[teffectsR]{teffect} when the method is set to \code{'IPW'}.
 Inverse Probability Weighting fits a (binomial \link[stats]{glm}) model for the exposure (propensity score model).
 Predictions from this model are used to weight the observations and derive potential outcome means.
 This implementation normalizes the propesnity score weights.

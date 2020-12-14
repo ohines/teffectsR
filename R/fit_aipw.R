@@ -1,6 +1,6 @@
 #' Fit Augmented Inverse Probability Weighting
 #'
-#' Fitting function called by \link[teffectsR]{teffects} when the method is set to \code{'AIPW'}.
+#' Fitting function called by \link[teffectsR]{teffect} when the method is set to \code{'AIPW'}.
 #' Augmented Inverse Probability Weighting combines the IPW method and the RA method. 
 #' A (binomial \link[stats]{glm}) exposure model is fitted which provides observation weights.
 #' Also a (\link[stats]{glm}) outcome model is fitted to each treatment subgroup, and used to predict potential outcomes.

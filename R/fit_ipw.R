@@ -1,6 +1,6 @@
 #' Fit Inverse Probability Weighting
 #'
-#' Fitting function called by \link[teffectsR]{teffects} when the method is set to \code{'IPW'}.
+#' Fitting function called by \link[teffectsR]{teffect} when the method is set to \code{'IPW'}.
 #' Inverse Probability Weighting fits a (binomial \link[stats]{glm}) model for the exposure (propensity score model).
 #' Predictions from this model are used to weight the observations and derive potential outcome means.
 #' This implementation normalizes the propesnity score weights.

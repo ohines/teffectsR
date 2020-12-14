@@ -1,6 +1,6 @@
 #' Fit Propensity Score Matching
 #'
-#' Fitting function called by \link[teffectsR]{teffects} when the method is set to \code{'PSMatch'}.
+#' Fitting function called by \link[teffectsR]{teffect} when the method is set to \code{'PSMatch'}.
 #' Propensity Score Matching fits a (binomial \link[stats]{glm}) model for the exposure (propensity score model).
 #' Observations from each treatment group are matched based on predictions from this model.
 #' See \code{\link[Matching]{Match}} for details on Matching.

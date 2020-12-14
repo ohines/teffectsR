@@ -31,7 +31,7 @@ Can be either \code{"ATE","ATT","ATC"} or \code{"All"} to fit all three.}
 List of fit parameters, which is used to derive an object of class \code{teffects} when called by \link[teffectsR]{teffects}.
 }
 \description{
-Fitting function called by \link[teffectsR]{teffects} when the method is set to \code{'RA'}.
+Fitting function called by \link[teffectsR]{teffect} when the method is set to \code{'RA'}.
 Regression adjusment fits a \link[stats]{glm} model for the outcome to each treatment subgroup.
 Potential outcomes are derived using these outcome models.
 }

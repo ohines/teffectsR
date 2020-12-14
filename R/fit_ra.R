@@ -1,6 +1,6 @@
 #' Fit Regression Adjusment
 #'
-#' Fitting function called by \link[teffectsR]{teffects} when the method is set to \code{'RA'}.
+#' Fitting function called by \link[teffectsR]{teffect} when the method is set to \code{'RA'}.
 #' Regression adjusment fits a \link[stats]{glm} model for the outcome to each treatment subgroup.
 #' Potential outcomes are derived using these outcome models.
 #'
