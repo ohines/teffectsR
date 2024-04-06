@@ -13,35 +13,37 @@ fit_psmatch(X, Y, Zx, treatment.effect = "ATE", weights = rep(1, N), ...)
 
 \item{Zx}{design matrix for the exposure (propensity score) model.}
 
-\item{treatment.effect}{the treament effect estimand of interest. 
+\item{treatment.effect}{the treament effect estimand of interest.
 Can be either \code{"ATE","ATT"} or \code{"ATC"}.}
 
-\item{weights}{an optional numeric vector of ‘observation weights’ to be used in the fitting process.}
+\item{weights}{an optional numeric vector of ‘observation weights’ to be used
+in the fitting process.}
 
-\item{...}{arguments to be passed to the matching function. See \link[Matching]{Match} for details.}
-
-\item{Zy}{design matrix for the outcome model to be fitted to each treatment subgroup.}
-
-\item{Ofam}{family function for the outcome model. See \link[stats]{family} for details of family functions.}
+\item{...}{arguments to be passed to the matching function.
+See\ link[Matching]{Match} for details.}
 }
 \value{
-List of fit parameters, which is used to derive an object of class \code{teffects} when called by \link[teffectsR]{teffects}.
+List of fit parameters, which is used to derive an object of class
+\code{teffects} when called by \link[teffectsR]{teffect}.
 }
 \description{
-Fitting function called by \link[teffectsR]{teffect} when the method is set to \code{'PSMatch'}.
-Propensity Score Matching fits a (binomial \link[stats]{glm}) model for the exposure (propensity score model).
-Observations from each treatment group are matched based on predictions from this model.
+Fitting function called by \link[teffectsR]{teffect} when the method is set
+to \code{'PSMatch'}.
+Propensity Score Matching fits a (binomial \link[stats]{glm}) model for the
+exposure (propensity score model).
+Observations from each treatment group are matched based on predictions from
+this model.
 See \code{\link[Matching]{Match}} for details on Matching.
 }
 \examples{
-#generate some data
-N = 50
-X = rnorm(N)              #confounder
-A = rbinom(N,1,plogis(X)) #treatment variable
-Y = X+0.5*A               #continuous outcome
-Z = rbinom(N,1,plogis(Y)) #binary outcome
-df = data.frame(X=X,A=A,Y=Y,Z=Z)
+# generate some data
+N <- 50
+X <- rnorm(N) # confounder
+A <- rbinom(N, 1, plogis(X)) # treatment variable
+Y <- X + 0.5 * A # continuous outcome
+Z <- rbinom(N, 1, plogis(Y)) # binary outcome
+df <- data.frame(X = X, A = A, Y = Y, Z = Z)
 
-teffect(A~X,Y~1,data=df,method="PSMatch")
-teffect(A~X,Z~1,data=df,method="PSMatch")
+teffect(A ~ X, Y ~ 1, data = df, method = "PSMatch")
+teffect(A ~ X, Z ~ 1, data = df, method = "PSMatch")
 }

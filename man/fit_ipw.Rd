@@ -13,28 +13,33 @@ fit_ipw(X, Y, Zx, weights = rep(1, N))
 
 \item{Zx}{design matrix for the exposure (propensity score) model.}
 
-\item{weights}{an optional numeric vector of ‘observation weights’ to be used in the fitting process.}
+\item{weights}{an optional numeric vector of ‘observation weights’ to be used
+in the fitting process.}
 }
 \value{
-List of fit parameters, which is used to derive an object of class \code{teffects} when called by \link[teffectsR]{teffects}.
+List of fit parameters, which is used to derive an object of class
+\code{teffects} when called by \link[teffectsR]{teffect}.
 }
 \description{
-Fitting function called by \link[teffectsR]{teffect} when the method is set to \code{'IPW'}.
-Inverse Probability Weighting fits a (binomial \link[stats]{glm}) model for the exposure (propensity score model).
-Predictions from this model are used to weight the observations and derive potential outcome means.
+Fitting function called by \link[teffectsR]{teffect} when the method is
+set to \code{'IPW'}.
+Inverse Probability Weighting fits a (binomial \link[stats]{glm}) model
+for the exposure (propensity score model).
+Predictions from this model are used to weight the observations and derive
+ potential outcome means.
 This implementation normalizes the propesnity score weights.
 This is sometimes called the "sample bounded" IPW estimator.
 }
 \examples{
-#generate some data
-N = 50
-X = rnorm(N)              #confounder
-A = rbinom(N,1,plogis(X)) #treatment variable
-Y = X+0.5*A               #continuous outcome
-Z = rbinom(N,1,plogis(Y)) #binary outcome
-df = data.frame(X=X,A=A,Y=Y,Z=Z)
+# generate some data
+N <- 50
+X <- rnorm(N) # confounder
+A <- rbinom(N, 1, plogis(X)) # treatment variable
+Y <- X + 0.5 * A # continuous outcome
+Z <- rbinom(N, 1, plogis(Y)) # binary outcome
+df <- data.frame(X = X, A = A, Y = Y, Z = Z)
 
-teffect(A~X,Y~1,data=df,method="IPW")
-teffect(A~X,Z~1,data=df,method="IPW")
+teffect(A ~ X, Y ~ 1, data = df, method = "IPW")
+teffect(A ~ X, Z ~ 1, data = df, method = "IPW")
 
 }

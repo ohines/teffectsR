@@ -5,9 +5,11 @@ Version: 1.0
 Author: Oliver Hines
 Maintainer: Oliver Hines <oliver.hines@lshtm.ac.uk>
 Description: Fit causal treatment-effect estimands using regression adjusment and methods based on the propensity score.
-License: TBC
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports:
   Matching
-RoxygenNote: 7.1.0
+Suggests:
+  testthat
+RoxygenNote: 7.3.1

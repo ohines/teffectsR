@@ -7,15 +7,19 @@
 IF.glm(object, x = object$x)
 }
 \arguments{
-\item{object}{A \code{glm} model object (run with \code{x=TRUE}), or a \code{glm.fit} object}
+\item{object}{A \code{glm} model object (run with \code{x=TRUE}),
+or a \code{glm.fit} object}
 
-\item{x}{The model matrix. Not required for a \code{glm} model object (run with \code{x=TRUE}).}
+\item{x}{The model matrix.
+Not required for a \code{glm} model object (run with \code{x=TRUE}).}
 }
 \value{
 Matrix of influence function values.
 }
 \description{
-\code{IF.glm} returns a matrix of influence functions from either a \code{glm} model object (run with \code{x=TRUE}),
- or a \code{glm.fit} object (in which case the user must parse the design matrix, \code{x}).
- The resulting matrix has one row for each observation, and one column for each GLM model parameter.
+\code{IF.glm} returns a matrix of influence functions from either a
+\code{glm} model object (run with \code{x=TRUE}), or a \code{glm.fit}
+object (in which case the user must parse the design matrix, \code{x}).
+ The resulting matrix has one row for each observation, and one column
+for each GLM model parameter.
 }
