@@ -21,33 +21,42 @@ fit_aipw(
 
 \item{Zx}{design matrix for the exposure (propensity score) model.}
 
-\item{Zy}{design matrix for the outcome model to be fitted to each treatment subgroup.}
+\item{Zy}{design matrix for the outcome model to be fitted to each treatment
+subgroup.}
 
-\item{Ofam}{family function for the outcome model. See \link[stats]{family} for details of family functions.}
+\item{Ofam}{family function for the outcome model.
+See \link[stats]{family} for details of family functions.}
 
-\item{treatment.effect}{the treament effect estimand of interest. 
+\item{treatment.effect}{the treament effect estimand of interest.
 Can be either \code{"ATE","ATT","ATC"} or \code{"All"} to fit all three.}
 
-\item{weights}{an optional numeric vector of ‘observation weights’ to be used in the fitting process.}
+\item{weights}{an optional numeric vector of ‘observation weights’ to be used
+in the fitting process.}
 }
 \value{
-List of fit parameters, which is used to derive an object of class \code{teffects} when called by \link[teffectsR]{teffects}.
+List of fit parameters, which is used to derive an object of class
+\code{teffects} when called by \link[teffectsR]{teffect}.
 }
 \description{
-Fitting function called by \link[teffectsR]{teffect} when the method is set to \code{'AIPW'}.
-Augmented Inverse Probability Weighting combines the IPW method and the RA method. 
-A (binomial \link[stats]{glm}) exposure model is fitted which provides observation weights.
-Also a (\link[stats]{glm}) outcome model is fitted to each treatment subgroup, and used to predict potential outcomes.
+Fitting function called by \link[teffectsR]{teffect} when the method is set
+to \code{'AIPW'}.
+Augmented Inverse Probability Weighting combines the IPW method and the RA
+method.
+A (binomial \link[stats]{glm}) exposure model is fitted which provides
+observation weights.
+Also a (\link[stats]{glm}) outcome model is fitted to each treatment
+subgroup, and used to predict potential outcomes.
 }
 \examples{
-#generate some data
-N = 50
-X = rnorm(N)              #confounder
-A = rbinom(N,1,plogis(X)) #treatment variable
-Y = X+0.5*A               #continuous outcome
-Z = rbinom(N,1,plogis(Y)) #binary outcome
-df = data.frame(X=X,A=A,Y=Y,Z=Z)
+# generate some data
+N <- 50
+X <- rnorm(N) # confounder
+A <- rbinom(N, 1, plogis(X)) # treatment variable
+Y <- X + 0.5 * A # continuous outcome
+Z <- rbinom(N, 1, plogis(Y)) # binary outcome
+df <- data.frame(X = X, A = A, Y = Y, Z = Z)
 
-teffect(A~X,Y~X,data=df,method="AIPW")
-teffect(A~X,Z~X,data=df,outcome.family="binomial",method="AIPW")
+teffect(A ~ X, Y ~ X, data = df, method = "AIPW")
+teffect(A ~ X, Z ~ X, data = df, outcome.family = "binomial", method = "AIPW")
+
 }
